@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>The Psychic Game</h1>
+        <p>Guess what letter I'm thinking of</p>
+        <p id="winsID">Wins: 0</p>
+        <p id="lossesID">Losses: 0</p>
+        <p id="guessesLeftID">Guesses left: 9</p>
+        <p id="guessesSoFarID">Your guesses so far:0</p>
+        <script>
+        //Variables
+        var userChoice = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
+        var computerChoice = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
+        var wins = 0;
+        var losses = 0; 
+        var guessesLeft = 9;
+        var guessesSoFar = "";
+        //loop
+        for (var i = 0; i < userChoice.length; i++) {
+
+
+        
+        //If/Else statements  
+        if (userChoice === computerChoice) {
+        document.getElementById(winsID).innerHTML = "Wins: " + (wins + 1);
+        document.getElementById(guessesLeftID).innerHTML = "Guesses left: 9";
+
+        }
+        else if (userChoice !== computerChoice) {
+        document.getElementById(guessesLeftID).innerHTML = "Guesses left: " + (guessesLeft - 1);
+        document.getElementById(guessesSoFarID).innerHTML = "Your guesses so far: " + (userChoice);
+        }
+        }    
+        </script>
+    </body>
+</html>
