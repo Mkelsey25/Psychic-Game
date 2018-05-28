@@ -12,19 +12,19 @@
         <p><div id="guessesSoFarID">Guesses so far: </div></p>
         <script>
         //Variables
-            var alphabet = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-            var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+        var alphabet = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
             console.log(computerChoice);
 
 
  
         
-        document.onkeyup = function(event) {
+        /*document.onkeyup = function(event) {
             
             var userChoice = event.key;
             document.getElementById("guessesSoFarID").innerHTML += "" + event.key;
            
-            console.log(userChoice) 
+            console.log(userChoice)*/ 
         
            
             var wins = 0;
@@ -33,17 +33,29 @@
             var guessesSoFar;
 
 
+
             for(i = 0; i < 9; i++) {
+                document.onkeyup = function(event) {
+            
+            var userChoice = event.key;
+            document.getElementById("guessesSoFarID").innerHTML += "" + event.key;
+           
+            console.log(userChoice) 
+
             if(computerChoice === userChoice) {
                 wins ++;
                 document.getElementById("winsID").innerHTML = "Wins: " + wins;
                 console.log(wins);
-                { break; }
+                    computerChoice = alphabet[Math.floor(Math.random() * alphabet.length) + 1];
+                console.log(computerChoice);
 
+
+                //{ break;}
             }
             else if(computerChoice !== userChoice) {
                 guessesLeft--;
                 console.log(guessesLeft);
+                //{ break;}
                 
             }
             /*if(guessesLeft === 0) {
@@ -62,21 +74,7 @@
             //if(guessesLeft === 0) {
                 //losses += 1;
                 //document.getElementById("lossesID").innerHTML = "Losses: " + losses;
-           // }*/
-            
-
-     
-        
-        
-        
-        
-        
-        
-        //loop
-        //for (var i = 0; i < userChoice.length; i++) {
-
-
-        
+           // }*/      
    
         </script>
     </body>
