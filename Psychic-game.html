@@ -6,35 +6,78 @@
     <body>
         <h1>The Psychic Game</h1>
         <p>Guess what letter I'm thinking of</p>
-        <p id="winsID">Wins: 0</p>
-        <p id="lossesID">Losses: 0</p>
-        <p id="guessesLeftID">Guesses left: 9</p>
-        <p id="guessesSoFarID">Your guesses so far:0</p>
+        <p id="winsID"></p>
+        <p id="lossesID"></p>
+        <p id="guessesLeftID"></p>
+        <p><div id="guessesSoFarID">Guesses so far: </div></p>
         <script>
         //Variables
-        
-        var alphabet = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
-        var wins = 0;
-        var losses = 0; 
-        var guessesLeft = 9;
-        var guessesSoFar = "";
-        //
-        var computerChoice = alphabet[Math.floor(Math.random * alphabet.length)]
-        console.log(computerChoice)
-        
-        document.onkeypress = function (event) {
-        var userChoice = event.key;
-        //If/Else statements  
-        if (userChoice === computerChoice) {
-        document.getElementById(winsID).innerHTML = "Wins: " + (wins + 1);
-        document.getElementById(guessesLeftID).innerHTML = "Guesses left: 9";
+            var alphabet = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+            console.log(computerChoice);
 
+
+ 
+        
+        document.onkeyup = function(event) {
+            
+            var userChoice = event.key;
+            document.getElementById("guessesSoFarID").innerHTML += "" + event.key;
+           
+            console.log(userChoice) 
+        
+           
+            var wins = 0;
+            var losses = 0; 
+            var guessesLeft = 9;
+            var guessesSoFar;
+
+
+            for(i = 0; i < 9; i++) {
+            if(computerChoice === userChoice) {
+                wins ++;
+                document.getElementById("winsID").innerHTML = "Wins: " + wins;
+                console.log(wins);
+                { break; }
+
+            }
+            else if(computerChoice !== userChoice) {
+                guessesLeft--;
+                console.log(guessesLeft);
+                
+            }
+            /*if(guessesLeft === 0) {
+                losses++;
+                document.getElementById("lossesID").innerHTML = "Losses: " + losses;
+            }*/
+            }
         }
-        else if (userChoice !== computerChoice) {
-        document.getElementById(guessesLeftID).innerHTML = "Guesses left: " + (guessesLeft - 1);
-        document.getElementById(guessesSoFarID).innerHTML = "Your guesses so far: " + (userChoice);
-        } 
-        }
+            
+           
+            //else {
+                 //guessesLeft -= 1;
+            //document.getElementById("guessesLeftID").innerHTML = "Guesses left: " + guessesLeft;
+                 
+            //}
+            //if(guessesLeft === 0) {
+                //losses += 1;
+                //document.getElementById("lossesID").innerHTML = "Losses: " + losses;
+           // }*/
+            
+
+     
+        
+        
+        
+        
+        
+        
+        //loop
+        //for (var i = 0; i < userChoice.length; i++) {
+
+
+        
+   
         </script>
     </body>
 </html>
